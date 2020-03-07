@@ -14,6 +14,9 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import sys
+sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages') # in order to import cv2 under python3
+
 import _init_paths
 from model.config import cfg
 from model.test import im_detect
@@ -30,6 +33,8 @@ from nets.vgg16 import vgg16
 from nets.resnet_v1 import resnetv1
 
 import torch
+
+sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages') # append back in order to import rospy
 
 CLASSES = ('__background__', 'aeroplane', 'bicycle', 'bird', 'boat', 'bottle',
            'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse',
